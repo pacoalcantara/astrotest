@@ -1,4 +1,27 @@
 ---
+// Simple Hello World using existing layout
+import Layout from '~/layouts/PageLayout.astro';
+
+const metadata = {
+  title: 'Hola Rocio',
+};
+---
+
+<Layout metadata={metadata}>
+  <section class="px-6 py-12 sm:py-16 lg:py-20">
+    <div class="mx-auto max-w-4xl text-center">
+      <h1 class="text-4xl font-bold tracking-tight sm:text-5xl lg:text-6xl">
+        Hello World
+      </h1>
+    </div>
+  </section>
+</Layout>
+
+<!-- 
+BACKUP
+
+
+---
 import Layout from '~/layouts/PageLayout.astro';
 
 import Hero from '~/components/widgets/Hero.astro';
@@ -397,3 +420,7 @@ const metadata = {
     </Fragment>
   </CallToAction>
 </Layout>
+
+END OF BACKUP
+-->
+
