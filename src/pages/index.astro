@@ -1,44 +1,593 @@
-
-Copy
-
 ---
-// Minimal Hello World - no dependencies
+// Professional Pain Medicine Clinic Website
+// Dr. Ma. del Rocío A. Alcántara Muñoz
 ---
 
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Hello World</title>
+    <meta name="description" content="Dra. Rocío Alcántara - Algología Intervencionista, Medicina del Dolor y Paliativa en Puebla y Ciudad de México" />
+    <title>Dra. Rocío Alcántara - Medicina del Dolor | Puebla & CDMX</title>
     <style>
-      body {
+      * {
         margin: 0;
         padding: 0;
-        font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        min-height: 100vh;
-        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        box-sizing: border-box;
       }
-      h1 {
-        color: white;
-        font-size: 4rem;
-        margin: 0;
+
+      :root {
+        --primary: #2c5f7d;
+        --secondary: #4a90a4;
+        --accent: #7eb5c8;
+        --dark: #1a3a4d;
+        --light: #f0f7fa;
+        --white: #ffffff;
+        --text: #2d3748;
+        --text-light: #4a5568;
+        --border: #e2e8f0;
+      }
+
+      body {
+        font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+        line-height: 1.6;
+        color: var(--text);
+        background: var(--white);
+      }
+
+      /* Header */
+      header {
+        background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+        color: var(--white);
+        padding: 3rem 1.5rem;
         text-align: center;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      }
+
+      .hero-title {
+        font-size: 2.5rem;
+        font-weight: 700;
+        margin-bottom: 1rem;
         text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
       }
-      @media (max-width: 640px) {
-        h1 {
-          font-size: 2.5rem;
+
+      .hero-subtitle {
+        font-size: 1.5rem;
+        font-weight: 300;
+        margin-bottom: 1rem;
+        opacity: 0.95;
+      }
+
+      .hero-description {
+        font-size: 1.1rem;
+        max-width: 800px;
+        margin: 0 auto 1.5rem;
+        opacity: 0.9;
+        line-height: 1.7;
+      }
+
+      .specialties {
+        font-size: 1rem;
+        font-style: italic;
+        opacity: 0.85;
+      }
+
+      /* Container */
+      .container {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 1.5rem;
+      }
+
+      /* Sections */
+      section {
+        padding: 4rem 1.5rem;
+      }
+
+      section:nth-child(even) {
+        background: var(--light);
+      }
+
+      .section-title {
+        font-size: 2rem;
+        color: var(--primary);
+        margin-bottom: 2rem;
+        text-align: center;
+        font-weight: 700;
+      }
+
+      .section-content {
+        max-width: 900px;
+        margin: 0 auto;
+      }
+
+      /* About Section */
+      .about-text {
+        font-size: 1.05rem;
+        line-height: 1.8;
+        margin-bottom: 1.5rem;
+        color: var(--text);
+      }
+
+      .about-item {
+        margin-bottom: 1.2rem;
+        padding-left: 1.5rem;
+        position: relative;
+      }
+
+      .about-item::before {
+        content: "•";
+        position: absolute;
+        left: 0;
+        color: var(--secondary);
+        font-size: 1.5rem;
+        line-height: 1;
+      }
+
+      /* Expertise Grid */
+      .expertise-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        gap: 1.5rem;
+        margin-top: 2rem;
+      }
+
+      .expertise-card {
+        background: var(--white);
+        padding: 1.5rem;
+        border-radius: 8px;
+        border-left: 4px solid var(--secondary);
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+      }
+
+      .expertise-card:hover {
+        transform: translateY(-4px);
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+      }
+
+      .expertise-card h3 {
+        color: var(--primary);
+        margin-bottom: 0.8rem;
+        font-size: 1.2rem;
+      }
+
+      .expertise-list {
+        list-style: none;
+      }
+
+      .expertise-list li {
+        padding: 0.4rem 0;
+        padding-left: 1.2rem;
+        position: relative;
+        font-size: 0.95rem;
+        color: var(--text-light);
+      }
+
+      .expertise-list li::before {
+        content: "✓";
+        position: absolute;
+        left: 0;
+        color: var(--secondary);
+        font-weight: bold;
+      }
+
+      /* Contact Cards */
+      .contact-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 2rem;
+        margin-top: 2rem;
+      }
+
+      .contact-card {
+        background: var(--white);
+        padding: 2rem;
+        border-radius: 12px;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        border-top: 4px solid var(--secondary);
+      }
+
+      .contact-card h3 {
+        color: var(--primary);
+        font-size: 1.5rem;
+        margin-bottom: 1rem;
+        text-align: center;
+      }
+
+      .contact-info {
+        margin-bottom: 1rem;
+      }
+
+      .contact-label {
+        font-weight: 600;
+        color: var(--primary);
+        display: block;
+        margin-bottom: 0.3rem;
+        font-size: 0.9rem;
+      }
+
+      .contact-value {
+        color: var(--text);
+        line-height: 1.6;
+      }
+
+      .contact-value a {
+        color: var(--secondary);
+        text-decoration: none;
+      }
+
+      .contact-value a:hover {
+        text-decoration: underline;
+      }
+
+      /* Schedule & Social */
+      .info-box {
+        background: var(--white);
+        padding: 2rem;
+        border-radius: 12px;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        margin-bottom: 2rem;
+        text-align: center;
+      }
+
+      .info-box h3 {
+        color: var(--primary);
+        margin-bottom: 1rem;
+        font-size: 1.5rem;
+      }
+
+      .info-box p {
+        font-size: 1.1rem;
+        color: var(--text);
+      }
+
+      .social-links {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 1rem;
+        justify-content: center;
+        margin-top: 1.5rem;
+      }
+
+      .social-link {
+        display: inline-block;
+        padding: 0.7rem 1.5rem;
+        background: var(--secondary);
+        color: var(--white);
+        text-decoration: none;
+        border-radius: 6px;
+        transition: background 0.3s ease, transform 0.2s ease;
+        font-weight: 500;
+      }
+
+      .social-link:hover {
+        background: var(--primary);
+        transform: translateY(-2px);
+      }
+
+      /* CTA Section */
+      .cta-section {
+        background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+        color: var(--white);
+        text-align: center;
+        padding: 3rem 1.5rem;
+      }
+
+      .cta-section h2 {
+        font-size: 2rem;
+        margin-bottom: 1rem;
+      }
+
+      .cta-section p {
+        font-size: 1.2rem;
+        margin-bottom: 2rem;
+        opacity: 0.9;
+      }
+
+      /* Footer */
+      footer {
+        background: var(--dark);
+        color: var(--white);
+        text-align: center;
+        padding: 2rem 1.5rem;
+        font-size: 0.9rem;
+      }
+
+      /* Responsive Design */
+      @media (max-width: 768px) {
+        .hero-title {
+          font-size: 1.8rem;
+        }
+
+        .hero-subtitle {
+          font-size: 1.2rem;
+        }
+
+        .hero-description {
+          font-size: 1rem;
+        }
+
+        .section-title {
+          font-size: 1.6rem;
+        }
+
+        section {
+          padding: 3rem 1rem;
+        }
+
+        .expertise-grid {
+          grid-template-columns: 1fr;
+        }
+
+        .contact-grid {
+          grid-template-columns: 1fr;
+        }
+
+        .cta-section h2 {
+          font-size: 1.6rem;
+        }
+
+        .cta-section p {
+          font-size: 1rem;
+        }
+      }
+
+      @media (max-width: 480px) {
+        .hero-title {
+          font-size: 1.5rem;
+        }
+
+        .hero-subtitle {
+          font-size: 1.1rem;
+        }
+
+        .section-title {
+          font-size: 1.4rem;
+        }
+
+        .contact-card {
+          padding: 1.5rem;
         }
       }
     </style>
   </head>
   <body>
-    <h1>Hola Rocio</h1>
+    <!-- Header / Hero Section -->
+    <header>
+      <h1 class="hero-title">¡Que el dolor no te detenga!</h1>
+      <h2 class="hero-subtitle">Dra. Ma. del Rocío A. Alcántara Muñoz</h2>
+      <p class="hero-description">
+        La algología es la rama de la medicina que estudia el dolor y su tratamiento, 
+        puede incluir intervenciones de mínima invasión y analgésicos opioides entre otros.
+      </p>
+      <p class="specialties">
+        Anestesióloga Regionalista • Algóloga Intervencionista • Medicina del Dolor y Paliativa
+      </p>
+    </header>
+
+    <!-- About Section -->
+    <section id="sobre-mi">
+      <div class="container">
+        <h2 class="section-title">Sobre Mí</h2>
+        <div class="section-content">
+          <div class="about-item">
+            Soy Médica Cirujano de la Universidad Popular Autónoma del Estado de Puebla.
+          </div>
+          <div class="about-item">
+            Realicé mi especialidad en Anestesiología en el Hospital Ángeles Pedregal avalado por la Universidad La Salle. Tratar el dolor para mí siempre fue muy importante.
+          </div>
+          <div class="about-item">
+            Realicé el Posgrado de Alta Especialidad en Medicina del Dolor y Cuidados Paliativos en el Instituto Nacional de Ciencias Médicas y Nutrición Salvador Zubirán, avalado por la UNAM.
+          </div>
+          <div class="about-item">
+            Realicé también el Posgrado de Alta Especialidad en Algología Intervencionista en el Instituto Nacional de Ciencias Médicas y Nutrición Salvador Zubirán.
+          </div>
+          <div class="about-item">
+            Así mismo cuento con el Posgrado de Alta Especialidad en Anestesia Regional en el Instituto Nacional, también avalado por la UNAM.
+          </div>
+          <p class="about-text" style="margin-top: 2rem;">
+            A lo largo de este tiempo me he dedicado a seguir preparándome para poder brindar a mis pacientes, 
+            tanto de forma institucional como privada, la mejor atención posible, esforzándome en dar lo mejor de mí. 
+            Por lo que asisto de manera constante a cursos y congresos nacionales e internacionales para mantenerme 
+            siempre con conocimientos actualizados.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Expertise Section -->
+    <section id="especialidades">
+      <div class="container">
+        <h2 class="section-title">Experta en</h2>
+        <div class="expertise-grid">
+          <div class="expertise-card">
+            <h3>Dolor Crónico</h3>
+            <ul class="expertise-list">
+              <li>Dolor Neuropático</li>
+              <li>Fibromialgia</li>
+              <li>Neuropatía Diabética</li>
+              <li>Síndrome Dolor Regional Complejo</li>
+            </ul>
+          </div>
+
+          <div class="expertise-card">
+            <h3>Dolor Oncológico</h3>
+            <ul class="expertise-list">
+              <li>Manejo del dolor por cáncer</li>
+              <li>Cuidados Paliativos</li>
+              <li>Dolor Terminal</li>
+            </ul>
+          </div>
+
+          <div class="expertise-card">
+            <h3>Dolor Neurálgico</h3>
+            <ul class="expertise-list">
+              <li>Neuralgia Post Herpética</li>
+              <li>Neuralgia del Trigémino</li>
+              <li>Neuralgia de Arnold</li>
+              <li>Dolor de cara</li>
+            </ul>
+          </div>
+
+          <div class="expertise-card">
+            <h3>Dolor de Columna</h3>
+            <ul class="expertise-list">
+              <li>Hernias de Disco (Lumbociatalgia)</li>
+              <li>Dolor cervical</li>
+              <li>Dolor lumbar</li>
+              <li>Dolor post cirugía en columna</li>
+            </ul>
+          </div>
+
+          <div class="expertise-card">
+            <h3>Dolor Articular</h3>
+            <ul class="expertise-list">
+              <li>Dolor de Cadera</li>
+              <li>Dolor de Rodilla</li>
+            </ul>
+          </div>
+
+          <div class="expertise-card">
+            <h3>Otros</h3>
+            <ul class="expertise-list">
+              <li>Dolor por Herpes Zóster</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Procedures Section -->
+    <section id="procedimientos">
+      <div class="container">
+        <h2 class="section-title">Procedimientos Intervencionistas</h2>
+        <div class="expertise-grid">
+          <div class="expertise-card">
+            <h3>Bloqueos de Nervios</h3>
+            <ul class="expertise-list">
+              <li>Bloqueo de nervios periféricos</li>
+              <li>Con guía de ultrasonido</li>
+              <li>Con guía de fluoroscopia</li>
+            </ul>
+          </div>
+
+          <div class="expertise-card">
+            <h3>Procedimientos de Columna</h3>
+            <ul class="expertise-list">
+              <li>Dolor de columna cervical</li>
+              <li>Dolor de columna lumbar</li>
+              <li>Denervación mediante radiofrecuencia</li>
+            </ul>
+          </div>
+
+          <div class="expertise-card">
+            <h3>Dispositivos Implantables</h3>
+            <ul class="expertise-list">
+              <li>Bomba Intratecal</li>
+              <li>Neuroestimulador de cordones posteriores medulares</li>
+            </ul>
+          </div>
+
+          <div class="expertise-card">
+            <h3>Bloqueos para Pacientes Oncológicos</h3>
+            <ul class="expertise-list">
+              <li>Bloqueo de Plexo Celíaco</li>
+              <li>Bloqueo Esplánico</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contacto">
+      <div class="container">
+        <h2 class="section-title">Ubicaciones y Contacto</h2>
+        <div class="contact-grid">
+          <!-- Puebla -->
+          <div class="contact-card">
+            <h3>📍 Puebla</h3>
+            <div class="contact-info">
+              <span class="contact-label">Dirección:</span>
+              <p class="contact-value">
+                Hospital MAC Torre 2, Consultorio 1107<br>
+                Anillo Periférico Ecológico 3507<br>
+                Tlaxcalancingo, CP. 72820<br>
+                San Andrés Cholula, Puebla
+              </p>
+            </div>
+            <div class="contact-info">
+              <span class="contact-label">Teléfono:</span>
+              <p class="contact-value">
+                <a href="tel:2211610200">221 161 0200</a>
+              </p>
+            </div>
+          </div>
+
+          <!-- Ciudad de México -->
+          <div class="contact-card">
+            <h3>📍 Ciudad de México</h3>
+            <div class="contact-info">
+              <span class="contact-label">Dirección:</span>
+              <p class="contact-value">
+                Hospital Ángeles Pedregal<br>
+                Torre Ángeles, Consultorio 615<br>
+                Camino Santa Teresa 1055<br>
+                Magdalena Contreras, CDMX, CP. 10700
+              </p>
+            </div>
+            <div class="contact-info">
+              <span class="contact-label">Teléfono:</span>
+              <p class="contact-value">
+                <a href="tel:5523463608">55 2346 3608</a>
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Schedule -->
+        <div class="info-box" style="margin-top: 3rem;">
+          <h3>🕐 Horarios de Atención</h3>
+          <p>Lunes a Sábado: 9:00 AM - 6:00 PM</p>
+        </div>
+
+        <!-- Social & Contact Info -->
+        <div class="info-box">
+          <h3>💬 Redes Sociales y Contacto</h3>
+          <div class="social-links">
+            <a href="https://www.facebook.com/dra.rocio.alcantara" target="_blank" rel="noopener noreferrer" class="social-link">
+              Facebook
+            </a>
+            <a href="https://www.instagram.com/dolor.dra.alcantara" target="_blank" rel="noopener noreferrer" class="social-link">
+              Instagram
+            </a>
+            <a href="https://www.tiktok.com/@dolor.dra.alcanta" target="_blank" rel="noopener noreferrer" class="social-link">
+              TikTok
+            </a>
+            <a href="https://linktr.ee/dolor.puebla" target="_blank" rel="noopener noreferrer" class="social-link">
+              Linktree
+            </a>
+            <a href="mailto:dra.rocio.alcantara@gmail.com" class="social-link">
+              Email
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section">
+      <div class="container">
+        <h2>Acude conmigo para controlar tu dolor</h2>
+        <p>Agenda tu cita hoy y recupera tu calidad de vida</p>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+      <p>&copy; 2026 Dra. Ma. del Rocío A. Alcántara Muñoz. Todos los derechos reservados.</p>
+    </footer>
   </body>
 </html>
-
-
